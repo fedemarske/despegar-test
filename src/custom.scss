@@ -1,0 +1,35 @@
+.delivery-header {
+    margin-bottom: 20px;
+}
+
+.delivery-footer {
+    height: 45px;
+    margin-top: 20px;
+}
+
+.delivey-form-container {
+    .error-msg {
+        height: 38px;
+        margin-bottom: 1rem;
+        &.textarea {
+            height: 85px;
+        }
+    }
+    .form-title {
+        border-bottom: 1px solid grey;
+        padding-bottom: 10px;
+    }
+    .form-body {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        &.checkbox-idem {
+            margin-top: 10px;
+        }
+        .time-divider {
+            margin-top: 15px;
+        }
+    }
+    .cancel-btn {
+        margin-right: 10px;
+    }
+}
