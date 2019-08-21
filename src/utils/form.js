@@ -2,7 +2,7 @@ const validation = (validation, value) => {
   let isValid = true
   let errorMsg = ''
   const { maxLenght, isRequired } = validation
-  if(maxLenght && value > maxLenght) {
+  if(maxLenght && value.length > maxLenght) {
     isValid = false
   }
   if(isRequired && !value) {

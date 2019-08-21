@@ -3,6 +3,11 @@ export const getDeliveryData = (id) => {
   return deliveries.filter( delivery => delivery.id === id)[0];
 }
 
+export const getAllDeliveries = () => {
+  const deliveries = JSON.parse(sessionStorage.getItem('deliveries')) || []
+  return deliveries;
+}
+
 export const saveDeliveryData = (payload, isEdit) => {
   const deliveries = JSON.parse(sessionStorage.getItem('deliveries'))
   if(deliveries && isEdit) {

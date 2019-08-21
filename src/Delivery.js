@@ -52,6 +52,10 @@ const Delivery = ({ deliveryId }) => {
     }
   },[deliveryId])
 
+  console.log(formDatosAdm)
+  console.log(formContactAdm)
+  console.log(formContactComercial)
+
   return(
     <div className="delivey-form-container">
       <FormDatosAdm 

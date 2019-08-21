@@ -33,3 +33,41 @@
         margin-right: 10px;
     }
 }
+
+.delivey-list-container {
+    .header {
+        border-bottom: 1px solid gray;
+        padding-bottom: 5px;
+    }
+    .create-container {
+        text-align: right;
+        padding-right: 0;
+    }
+    .filter {
+        padding: 20px;
+        background: #eaeaea;
+        margin-top: 25px;
+        border: 1px solid #eaeaea;
+
+        .title-filter {
+            font-size: 25px;
+        }
+    }
+    .table-delivery {
+        margin-top: 30px;
+    }
+    .table td:last-child {
+        width: 200px;
+        & .btn-danger {
+            margin-right: 15px;
+        }
+    }
+    .table th.sortable-column {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        & img {
+            align-self: center;
+        }
+    }
+}
