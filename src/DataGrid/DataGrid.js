@@ -104,7 +104,6 @@ const DataGrid = ({
   const handleFilter = (e, field, index) => {
     const values = [...fields];
     const currentValue = e.currentTarget.value
-    console.log(field.indexColmn)
     const filteredData = getFilteredRows(rows, currentValue, field.indexColmn)
     values[index].value = currentValue;
     setFilteredDeliveries(filteredData)
