@@ -1,0 +1,152 @@
+[
+  {
+    "id": "1",
+    "datosAdmn": {
+      "nameAdm": "Test 1",
+      "phoneAdm": "22222222",
+      "descAdm": "test desc",
+      "especAdm": "test desc",
+      "addrAdm": "test 123",
+      "fromAdm": "13:11",
+      "toAdm": "15:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "test 1",
+      "apellContAdm": "test 1",
+      "phoneContAdm": "222222",
+      "emailContAdm": "test@test.com"
+    },
+    "contactComercial": {
+      "checkIdem": false,
+      "nameContComer": "test 1",
+      "apellContComer": "test 11",
+      "phoneContComer": "33333",
+      "emailContComer": "test@test1.com"
+    }
+  },
+  {
+    "id": "2",
+    "datosAdmn": {
+      "nameAdm": "test 2",
+      "phoneAdm": "aaa",
+      "descAdm": "aaa",
+      "especAdm": "aaaa",
+      "addrAdm": "aaa",
+      "fromAdm": "11:11",
+      "toAdm": "11:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "aaa",
+      "apellContAdm": "aaa",
+      "phoneContAdm": "aaa",
+      "emailContAdm": "aaa"
+    },
+    "contactComercial": {
+      "checkIdem": true,
+      "nameContComer": "aaa",
+      "apellContComer": "aaa",
+      "phoneContComer": "aaa",
+      "emailContComer": "aaa"
+    }
+  },
+  {
+    "id": "3",
+    "datosAdmn": {
+      "nameAdm": "test 3",
+      "phoneAdm": "aaa",
+      "descAdm": "aaa",
+      "especAdm": "aaaa",
+      "addrAdm": "aaa",
+      "fromAdm": "11:11",
+      "toAdm": "11:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "aaa",
+      "apellContAdm": "aaa",
+      "phoneContAdm": "aaa",
+      "emailContAdm": "aaa"
+    },
+    "contactComercial": {
+      "checkIdem": true,
+      "nameContComer": "aaa",
+      "apellContComer": "aaa",
+      "phoneContComer": "aaa",
+      "emailContComer": "aaa"
+    }
+  },
+  {
+    "id": "4",
+    "datosAdmn": {
+      "nameAdm": "test 4",
+      "phoneAdm": "aaa",
+      "descAdm": "aaa",
+      "especAdm": "aaaa",
+      "addrAdm": "aaa",
+      "fromAdm": "11:11",
+      "toAdm": "11:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "aaa",
+      "apellContAdm": "aaa",
+      "phoneContAdm": "aaa",
+      "emailContAdm": "aaa"
+    },
+    "contactComercial": {
+      "checkIdem": true,
+      "nameContComer": "aaa",
+      "apellContComer": "aaa",
+      "phoneContComer": "aaa",
+      "emailContComer": "aaa"
+    }
+  },
+  {
+    "id": "5",
+    "datosAdmn": {
+      "nameAdm": "test 5",
+      "phoneAdm": "aaa",
+      "descAdm": "aaa",
+      "especAdm": "aaaa",
+      "addrAdm": "aaa",
+      "fromAdm": "11:11",
+      "toAdm": "11:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "aaa",
+      "apellContAdm": "aaa",
+      "phoneContAdm": "aaa",
+      "emailContAdm": "aaa"
+    },
+    "contactComercial": {
+      "checkIdem": true,
+      "nameContComer": "aaa",
+      "apellContComer": "aaa",
+      "phoneContComer": "aaa",
+      "emailContComer": "aaa"
+    }
+  },
+  {
+    "id": "6",
+    "datosAdmn": {
+      "nameAdm": "test 6",
+      "phoneAdm": "aaa",
+      "descAdm": "aaa",
+      "especAdm": "aaaa",
+      "addrAdm": "aaa",
+      "fromAdm": "11:11",
+      "toAdm": "11:11"
+    },
+    "contactAdm": {
+      "nameContAdm": "aaa",
+      "apellContAdm": "aaa",
+      "phoneContAdm": "aaa",
+      "emailContAdm": "aaa"
+    },
+    "contactComercial": {
+      "checkIdem": true,
+      "nameContComer": "aaa",
+      "apellContComer": "aaa",
+      "phoneContComer": "aaa",
+      "emailContComer": "aaa"
+    }
+  }
+]

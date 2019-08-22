@@ -32,6 +32,17 @@
     .cancel-btn {
         margin-right: 10px;
     }
+    .form-control.is-invalid {
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        padding: .375rem .75rem;
+        background-image: none;
+        &:focus {
+            box-shadow: none;
+        }
+    }
 }
 
 .delivey-list-container {
@@ -63,11 +74,9 @@
         }
     }
     .table th.sortable-column {
-        display: flex;
-        justify-content: space-between;
         cursor: pointer;
         & img {
-            align-self: center;
+            float: right;
         }
     }
 }

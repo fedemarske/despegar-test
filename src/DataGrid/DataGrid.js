@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Form, FormGroup, Label, Input, Row } from 'reactstrap';
+import { Table, Form, FormGroup, Label, Input } from 'reactstrap';
 import PaginationDataGrid from './PaginationDataGrid'
 import ArrowDown from '../assets/down-arrow.svg';
 import ArrowUp from '../assets/up-arrow.svg';
 
-const getValue = (content, dataItem) => {
+const getValue = (content, dataItem, customHandlers) => {
   if(typeof content === 'string') {
     const path = content.split('.')
     return dataItem[path[0]][path[1]]
   } else if(typeof content === 'function') {
-    return content(dataItem)
+    return content(dataItem, customHandlers)
   } else if(typeof content === 'object') {
-    const CustomComp = content
-    return <CustomComp rowData={dataItem} />
+    const CustomComp = content.template
+    return <CustomComp rowData={dataItem} customHandlers={customHandlers}/>
   }
 }
 
-const getRowsWithData = (columns, data) => {
+const getRowsWithData = (columns, data, customHandlers) => {
   return data.map( item => {
     let row = []
     columns.forEach((column) => {
-      const value = getValue(column.content, item)
+      const value = getValue(column.content, item, customHandlers)
       row.push(value)
     })
     return row
@@ -28,27 +28,27 @@ const getRowsWithData = (columns, data) => {
 }
 
 const getFilterFields = (columns) => {
-  return columns.filter(column => column.filter).map( (column, index) => {
+  return columns.map( (column, index) => {
     return { 
       name: column.title,
       value: null,
-      indexColmn: index
+      indexColmn: index,
+      filter: column.filter
     }
-  })
+  }).filter(column => column.filter)
 }
 
 const getFilteredRows = (rows, value, index) => {
-  console.log("filterdata", rows)
   return rows.filter((row) => {
     return row[index].toString().toLowerCase().indexOf(value.toLowerCase()) !== -1;
   })
 }
 
-
 const DataGrid = ({
   data,
   itemsPerPage,
-  columns
+  columns,
+  customHandlers
 }) => {
   const [rows, setRows] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
@@ -61,17 +61,14 @@ const DataGrid = ({
   const firstItem = lastItem - itemsPerPage;
 
   useEffect(() => {
-    const rowsData = getRowsWithData(columns, data)
+    const rowsData = getRowsWithData(columns, data, customHandlers)
     const filterFields = getFilterFields(columns)
     const sortablesFiltered = columns
       .filter(column => column.sortable)
     if(sortablesFiltered.length !== 0) {
       const sortables = sortablesFiltered.map(sortItem => { return { name: sortItem.title, order: 'desc' }})
       setSortableColumns(sortables)
-      console.log(sortables)
     }
-    console.log(filterFields)
-    console.log(rowsData)
     setRows(rowsData)
     setFilteredDeliveries(rowsData)
     setFields(filterFields)
@@ -87,7 +84,7 @@ const DataGrid = ({
   const sortColumn = (sortedColumn, index) => {
     if(sortedColumn && sortedColumn.length !== 0) {
       const isDesc = sortedColumn.order === 'desc'
-      const sortedRows = filteredDeliveries.sort((a,b) => {
+      filteredDeliveries.sort((a,b) => {
         let result = ''
         if(!isDesc) {
           result = a[index].localeCompare(b[index]);
@@ -97,10 +94,9 @@ const DataGrid = ({
         return result;
       })
       sortedColumn.order = isDesc ? 'asc' : 'desc'
-      const newSortData = sortableColumns.filter( sorted => sorted.name === sortedColumn.name)
+      const newSortData = sortableColumns.filter( sorted => sorted.name !== sortedColumn.name)
       newSortData.push(sortedColumn)
       setSortableColumns(newSortData)
-      console.log(sortedRows)
       setRows(filteredDeliveries)
     }
   }
@@ -108,14 +104,12 @@ const DataGrid = ({
   const handleFilter = (e, field, index) => {
     const values = [...fields];
     const currentValue = e.currentTarget.value
+    console.log(field.indexColmn)
     const filteredData = getFilteredRows(rows, currentValue, field.indexColmn)
-    console.log(filteredData)
     values[index].value = currentValue;
     setFilteredDeliveries(filteredData)
     setFields(values);
   }
-
-  console.log(currentPageRows)
 
   return (
     <React.Fragment>
@@ -170,7 +164,7 @@ const DataGrid = ({
       </Table>
       <PaginationDataGrid 
         postsPerPage={itemsPerPage}
-        totalPosts={rows.length}
+        totalPosts={filteredDeliveries.length}
         paginate={setCurrentPage}
       />
     </React.Fragment>

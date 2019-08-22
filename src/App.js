@@ -6,8 +6,14 @@ import BuscadorDelivery from './BuscadorDelivery'
 import Delivery from './Delivery'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './custom.scss'
+import { getAllDeliveries } from './utils/delivery'
+import mock from './mock.json'
 
 const App = () => {
+  const deliveries = getAllDeliveries();
+  if(deliveries.length === 0) {
+    sessionStorage.setItem('deliveries', JSON.stringify(mock))
+  }
   return (
     <React.Fragment>
       <header className="delivery-header">

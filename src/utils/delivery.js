@@ -21,3 +21,9 @@ export const saveDeliveryData = (payload, isEdit) => {
     sessionStorage.setItem('deliveries', JSON.stringify([payload]))
   }
 }
+
+export const removeDelivery = (id) => {
+  const deliveries = JSON.parse(sessionStorage.getItem('deliveries')) || []
+  const deliveriesWithoutCurrent = deliveries.filter( delivery => delivery.id !== id);
+  sessionStorage.setItem('deliveries', JSON.stringify(deliveriesWithoutCurrent))
+}

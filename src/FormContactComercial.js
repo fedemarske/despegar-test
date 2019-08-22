@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Col, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Col, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 import { handleChange, setValidationOnForm } from './utils/form'
 import { defaultValues, FormContactComercialFields } from './constants'
 
@@ -41,40 +41,52 @@ const FormContactComercial = ({ setFormData, formData, deliveryData }) => {
           <Label for="nameContComer" sm={4}>Nombre</Label>
           <Col sm={6}>
               <Input type="text"
+                invalid={!nameContComer.isValid}
                 value={nameContComer.value}
+                disabled={checkIdem.value}
                 maxLength={nameContComer.validation.maxLenght}
                 onChange={(e) => handleChange(e, setNameContComer, nameContComer, setFormData, formData)} 
                 name="nameContComer" id="nameContComer" />
+                <FormFeedback>{nameContComer.errorMsg}</FormFeedback>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="apellContComer" sm={4}>Apellido</Label>
           <Col sm={6}>
               <Input type="text"
+                invalid={!apellContComer.isValid}
                 value={apellContComer.value}
+                disabled={checkIdem.value}
                 maxLength={apellContComer.validation.maxLenght}
                 onChange={(e) => handleChange(e, setApellContComer, apellContComer, setFormData, formData)} 
                 name="apellContComer" id="apellContComer" />
+                <FormFeedback>{apellContComer.errorMsg}</FormFeedback>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="phoneContComer" sm={4}>Telefono</Label>
           <Col sm={6}>
               <Input type="text"
+                invalid={!phoneContComer.isValid}
                 value={phoneContComer.value}
+                disabled={checkIdem.value}
                 maxLength={phoneContComer.validation.maxLenght}
                 onChange={(e) => handleChange(e, setPhoneContComer, phoneContComer, setFormData, formData)} 
                 name="phoneContComer" id="phoneContComer" />
+                <FormFeedback>{phoneContComer.errorMsg}</FormFeedback>
           </Col>
         </FormGroup>
         <FormGroup row>
           <Label for="emailContComer" sm={4}>Email</Label>
           <Col sm={6}>
               <Input type="email"
+                invalid={!emailContComer.isValid}
                 value={emailContComer.value}
+                disabled={checkIdem.value}
                 maxLength={emailContComer.validation.maxLenght}
                 onChange={(e) => handleChange(e, setEmailContComer, emailContComer, setFormData, formData)} 
                 name="emailContComer" id="emailContComer" />
+                <FormFeedback>{emailContComer.errorMsg}</FormFeedback>
           </Col>
         </FormGroup>
       </Form>
